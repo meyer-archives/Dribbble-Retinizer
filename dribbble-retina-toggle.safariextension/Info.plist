@@ -13,9 +13,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.2</string>
+	<string>0.2.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -42,7 +42,6 @@
 		<key>Whitelist</key>
 		<array>
 			<string>http://dribbble.com/shots/*</string>
-			<string></string>
 		</array>
 	</dict>
 	<key>Description</key>
@@ -67,6 +66,6 @@
 	<key>Update Manifest URL</key>
 	<string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/update-manifest-safari.plist</string>
 	<key>Website</key>
-	<string>http://mike.meyer.is/busy-with/side-projects#dribbble-retina-toggle</string>
+	<string>http://mike.meyer.is/busy-with-side-projects#dribbble-retina-toggle</string>
 </dict>
 </plist>

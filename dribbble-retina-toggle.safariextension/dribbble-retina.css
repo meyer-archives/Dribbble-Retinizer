@@ -87,13 +87,28 @@
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.37);
 	text-align: center;
 	font: bold 16px/24px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	background: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.07) 50%, rgba(0, 0, 0, 0) 50.3%, rgba(0, 0, 0, 0) 100%) no-repeat 0 0, -moz-linear-gradient(45deg, rgba(149, 149, 149, 0.7) 40.6%, #be16c9 63.8%) 0 0 #7b7b7b;
-	background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.14)), color-stop(0.5, rgba(0, 0, 0, 0.07)), color-stop(0.503, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0))) no-repeat 0 0, -webkit-gradient(linear, left bottom, right top, color-stop(0.406, rgba(149, 149, 149, 0.7)), color-stop(0.638, #be16c9)) 0 0 #7b7b7b!important;
-	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+	background-image:
+	-webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		from(rgba(0, 0, 0, 0.14)),
+		color-stop(0.5, rgba(0, 0, 0, 0.07)),
+		color-stop(0.503, rgba(0, 0, 0, 0)),
+		to(rgba(0, 0, 0, 0))
+	),
+	-webkit-gradient(
+		linear,
+		left bottom,
+		right top,
+		color-stop(0.406, rgba(149, 149, 149, 0.7)),
+		color-stop(0.638, #be16c9)
+		)!important;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
-	-webkit-background-size: 100%, 500px 100%;
+	-webkit-background-size: 100%, 500px 100%!important;
 	margin-bottom: 10px;
 	background-position: 0 0, 0 0;
+	background-color: #7b7b7b;
 	/* Keep the transition from stuttering */
 	-webkit-transform: translate3d(0,0,0);
 	-webkit-animation: buttonPulse 800ms ease-in-out 0s infinite alternate;

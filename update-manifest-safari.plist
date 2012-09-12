@@ -10,9 +10,9 @@
        <key>Developer Identifier</key>
        <string>7ZCMA49A25</string>
        <key>CFBundleVersion</key>
-       <string>2</string>
+       <string>3</string>
        <key>CFBundleShortVersionString</key>
-       <string>0.2</string>
+       <string>0.2.1</string>
        <key>URL</key>
        <string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/dribbble-retina-toggle.safariextz</string>
      </dict>

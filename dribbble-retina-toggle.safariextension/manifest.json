@@ -1,6 +1,6 @@
 {
 	"name": "Dribbble Retina Toggle",
-	"version": "0.2",
+	"version": "0.2.1",
 	"manifest_version": 2,
 	"description": "Adds intelligent retina toggling to Dribbble. Add “_2x” to an 800×600px attachment. This extension will do the rest.",
 	"icons": {
