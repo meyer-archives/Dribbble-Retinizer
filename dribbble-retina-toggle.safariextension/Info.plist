@@ -9,11 +9,11 @@
 	<key>CFBundleDisplayName</key>
 	<string>Dribbble Retina Toggle</string>
 	<key>CFBundleIdentifier</key>
-	<string>is.meyer.dribbble-retina-safari</string>
+	<string>is.meyer.dribble-retina-toggle</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.1</string>
+	<string>0.2</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
@@ -23,6 +23,10 @@
 	</dict>
 	<key>Content</key>
 	<dict>
+		<key>Blacklist</key>
+		<array>
+			<string>http://dribbble.com/shots/*/attachments/*</string>
+		</array>
 		<key>Scripts</key>
 		<dict>
 			<key>End</key>
@@ -34,6 +38,11 @@
 		<key>Stylesheets</key>
 		<array>
 			<string>dribbble-retina.css</string>
+		</array>
+		<key>Whitelist</key>
+		<array>
+			<string>http://dribbble.com/shots/*</string>
+			<string></string>
 		</array>
 	</dict>
 	<key>Description</key>
@@ -56,8 +65,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/safari-update-manifest.plist</string>
+	<string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/update-manifest-safari.plist</string>
 	<key>Website</key>
-	<string>http://projects.meyer.fm/dribbble-retina-toggle</string>
+	<string>http://mike.meyer.is/busy-with/side-projects#dribbble-retina-toggle</string>
 </dict>
 </plist>

@@ -46,7 +46,7 @@ function loadImageIntoCanvas(src, tab) {
 				}
 			);
 		} else {
-			console.log('Send response back to the whatchacallit');
+			// TODO: Debug the weirdness that this biz generates.
 			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage(
 				"imgData",
 				{

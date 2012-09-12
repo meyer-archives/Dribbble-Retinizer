@@ -85,7 +85,6 @@ $(function(){
 				} else {
 					$(document).trigger('showRetinaShot');
 				}
-				// retinaShotVisible = !retinaShotVisible;
 				return false;
 			}
 		)

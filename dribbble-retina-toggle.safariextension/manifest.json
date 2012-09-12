@@ -1,6 +1,6 @@
 {
 	"name": "Dribbble Retina Toggle",
-	"version": "0.1",
+	"version": "0.2",
 	"manifest_version": 2,
 	"description": "Adds intelligent retina toggling to Dribbble. Add “_2x” to an 800×600px attachment. This extension will do the rest.",
 	"icons": {
@@ -8,17 +8,15 @@
 		"48":  "icon48.png",
 		"128": "icon128.png"
 	},
-	"update_url": "http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/updates.xml",
+	"update_url": "http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/update-manifest-chrome.xml",
 	"permissions": [
 		"http://dribbble.com/",
-		"http://api.dribbble.com/",
 		"http://dribbble.s3.amazonaws.com/",
 		"tabs"
 	],
 	"background": {
 		"scripts": ["background.js"]
 	},
-	"options_page": "options.html",
 	"content_scripts": [
 		{
 			"matches": ["http://dribbble.com/shots/*"],

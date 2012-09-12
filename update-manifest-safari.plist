@@ -6,15 +6,15 @@
    <array>
      <dict>
        <key>CFBundleIdentifier</key>
-       <string>com.yourCompany.safari.yourExtensionName</string>
+       <string>is.meyer.dribble-retina-toggle</string>
        <key>Developer Identifier</key>
-       <string>YourCertificateID</string>
+       <string>7ZCMA49A25</string>
        <key>CFBundleVersion</key>
-       <string>Your current bundle version</string>
+       <string>2</string>
        <key>CFBundleShortVersionString</key>
-       <string>Your current display version</string>
+       <string>0.2</string>
        <key>URL</key>
-       <string>Your-.safariextz-URL</string>
+       <string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/dribbble-retina-toggle.safariextz</string>
      </dict>
    </array>
 </dict>
