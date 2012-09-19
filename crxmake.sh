@@ -2,7 +2,8 @@
 #
 # Purpose: Pack a Chromium extension directory into crx format
 
-# ./crxmake.sh dribbble-retina-toggle.safariextension ../chrome-certificate.pem dribbble-retina-toggle
+# ./crxmake.sh dribbble-retinizer.safariextension ../chrome-certificate.pem dribbble-retinizer-VERSION
+# TODO: Read version number out of manifest.json. Versioning should all be done automatically anyway.
 
 if test $# -ne 3; then
   echo "Usage: crxmake.sh <extension dir> <pem path> <extension name>"

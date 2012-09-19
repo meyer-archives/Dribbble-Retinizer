@@ -6,15 +6,15 @@
    <array>
      <dict>
        <key>CFBundleIdentifier</key>
-       <string>is.meyer.dribble-retina-toggle</string>
+       <string>is.meyer.dribble-retinizer</string>
        <key>Developer Identifier</key>
        <string>7ZCMA49A25</string>
        <key>CFBundleVersion</key>
-       <string>3</string>
+       <string>4</string>
        <key>CFBundleShortVersionString</key>
-       <string>0.2.1</string>
+       <string>0.3</string>
        <key>URL</key>
-       <string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/dribbble-retina-toggle.safariextz</string>
+       <string>http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/dribbble-retinizer-0.3.safariextz</string>
      </dict>
    </array>
 </dict>

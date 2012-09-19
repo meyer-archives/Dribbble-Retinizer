@@ -7,18 +7,31 @@
 }
 
 .retina-shot img{
-	left: 3px;
-}
-
-.retina-shot img{
 	position: relative;
 	top: 0;
-	opacity: 0;
 	-webkit-transition: opacity 700ms ease-in-out;
 }
 
 .retina-on .retina-shot img{
 	opacity: 1;
+}
+
+.retina-on .retina-shot{
+	left: -6px;
+}
+
+.retina-off .retina-shot{
+	right: -6px;
+}
+
+.retina-on .retina-shot img{
+	left: 3px;
+}
+
+.retina-off .retina-shot img{
+	left: -406px;
+	opacity: 0;
+	-webkit-transition: left 700ms ease-in-out, opacity 700ms ease-in-out;
 }
 
 .retina-shot{
@@ -27,11 +40,10 @@
 	width: 0px;
 	height: 300px;
 	background-color: #FFF!important;
-	border-right: 3px solid #FFF!important;
-	border-left: 3px solid #FFF!important;
+	border-right: 3px solid #F0F!important;
+	border-left: 3px solid #FF0!important;
 	top: 0px;
-	overflow: hidden;
-	left: -6px;
+	overflow: hidden!important;
 	-webkit-background-clip: padding-box;
 	-webkit-transform: translate3d(0,0,0)!important;
 	-webkit-transition: width 700ms ease-in-out, background-color 700ms ease-in-out!important;
@@ -49,6 +61,10 @@
 .retina-on .retina-shot{
 	width: 406px;
 /*	background-color: #FFF;*/
+}
+
+.retina-shot img{
+	position:relative!important;
 }
 
 .the-shot .single,
@@ -167,12 +183,15 @@
 
 
 @media (-webkit-min-device-pixel-ratio: 2) {
+	/*
+	This should probably be done with JS
 	.chrome .single-img img.original{
 		display: none;
 	}
 	.chrome .single-img img.crisp{
 		display: block;
 	}
+	*/
 	.toggle-2x.fake{
 		display: none;
 	}

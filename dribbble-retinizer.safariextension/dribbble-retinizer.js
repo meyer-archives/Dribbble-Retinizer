@@ -34,6 +34,7 @@ $(function(){
 	var shotImageURL = $shotImage.attr('src');
 	var retinaShotVisible = false;
 
+	/*
 	if( window.chrome ){
 		chrome.extension.sendRequest({"action": "imgUrl", "imgUrl": shotImageURL });
 
@@ -51,7 +52,6 @@ $(function(){
 			}
 		});
 	} else {
-		// TODO: This needs to be fixed.
 		safari.self.tab.dispatchMessage('imgUrl',{
 			"imgUrl": shotImageURL
 		});
@@ -68,7 +68,7 @@ $(function(){
 				);
 			}
 		},false);
-	}
+	}*/
 
 	// Check for attachments
 	var $attachmentList = $shotContainer.find('.attachments ul li a');
@@ -112,93 +112,104 @@ $(function(){
 
 			if( $a.text() == shotName2x ){
 				// We have a retina shot!
-				console.log('We have a retina shot!');
 				$shotContainer.removeClass('retina-unavailable');
 
 				// This is kind of a nasty hack but whatever.
 				var retinaShotURL = baseImageURL + 'attachments/' + attachmentID + '/' + shotName2x;
 
-				var loupeVisible = false;
-				// TODO: Conditional pixel perfect canvas magic for the loupe as well.
-				$retinaLoupe = $('<div id="retina-loupe"><div style="background-image:url('+retinaShotURL+');"></div></div>').appendTo($shotContainer);//.hide();
+				var img = new Image();
+				img.src = retinaShotURL;
+				img.onload = function() {
 
-				$shotContainer.addClass('loupe-hidden').hover(
-					function(){
-						$(document).bind('mousemove.retinaloupe',function(e){
-							var os = $shotContainer.offset();
-							var mouseX = e.pageX-os.left;
-							var mouseY = e.pageY-os.top;
-							if(
-								mouseX >= 0 &&
-								mouseX <= 440 &&
-								mouseY >= 0 &&
-								mouseY <= 340
-							){
-								if (!loupeVisible)
-									$shotContainer.removeClass('loupe-hidden');
-								loupeVisible = true;
+					// This needs more noodling.
+					var bkgOffsetX = img.width/2 < 400 ? Math.ceil((400-img.width/2)/2) : 0;
+					var bkgOffsetY = img.height/2 < 300 ? Math.ceil((300-img.height/2)/2) : 0;
 
-								// We're in bidness
-								$retinaLoupe.css({
-									left: mouseX,
-									top: mouseY
-								}).children('div').css({
-									backgroundPosition: (75-mouseX*2+40)+'px '+(75-mouseY*2+40)+'px'
-								});
-							} else {
-								if (loupeVisible)
-									$shotContainer.addClass('loupe-hidden');
-								loupeVisible = false;
-							}
-						})
-					},
-					function(){
-						$(document).unbind('mousemove.retinaloupe');
-					}
-				);
+					var loupeVisible = false;
+					// TODO: Conditional pixel perfect canvas magic for the loupe as well.
+					$retinaLoupe = $('<div id="retina-loupe"><div style="background-image:url('+retinaShotURL+');"></div></div>').appendTo($shotContainer);//.hide();
 
-				$(document).bind('devicePixelRatioChange', function(e,what){
-					if(what == 'retinaDisable'){
-						// Show dat loupe
-						$(document).trigger('hideRetinaShot');
-					}
-					if(what == 'retinaEnable'){
-						// Hide dat loupe
-						$(document).trigger('showRetinaShot');
-					}
-				});
+					$shotContainer.addClass('loupe-hidden').hover(
+						function(){
+							$(document).bind('mousemove.retinaloupe',function(e){
+								var os = $shotContainer.offset();
+								var mouseX = e.pageX-os.left;
+								var mouseY = e.pageY-os.top;
+								if(
+									mouseX >= 0 &&
+									mouseX <= 440 &&
+									mouseY >= 0 &&
+									mouseY <= 340
+								){
+									if (!loupeVisible)
+										$shotContainer.removeClass('loupe-hidden');
+									loupeVisible = true;
 
-				// Add the retina image + container
-				$shotContainer
-					.children('.single-grid')
-					.append(
-						'<div class="retina-shot">'+
-							'<img src="'+
-							retinaShotURL+'" width="'+
-							$shotImage.width()+'" height="'+
-							$shotImage.height()+'">'+
-						'</div>'
+									// We're in bidness
+									$retinaLoupe.css({
+										left: mouseX,
+										top: mouseY
+									}).children('div').css({
+										backgroundPosition: (75-mouseX*2+40+bkgOffsetX)+'px '+(75-mouseY*2+40+bkgOffsetY)+'px'
+									});
+								} else {
+									if (loupeVisible)
+										$shotContainer.addClass('loupe-hidden');
+									loupeVisible = false;
+								}
+							})
+						},
+						function(){
+							$(document).unbind('mousemove.retinaloupe');
+						}
 					);
 
-				$(document)
-				.bind('hideRetinaShot',function(){
-					$shotContainer.removeClass('retina-on').addClass('retina-off');
-					retinaShotVisible = false;
-					// $shotImage.attr('src',shotImageURL);
-				})
-				.bind('showRetinaShot',function(){
-					$shotContainer.removeClass('retina-off').addClass('retina-on');
-					retinaShotVisible = true;
-					// $shotImage.attr('src',attachmentURL);
-				});
+					$(document).bind('devicePixelRatioChange', function(e,what){
+						if(what == 'retinaDisable'){
+							// Show dat loupe
+							$(document).trigger('hideRetinaShot');
+						}
+						if(what == 'retinaEnable'){
+							// Hide dat loupe
+							$(document).trigger('showRetinaShot');
+						}
+					});
 
-				if( !retinaShotVisible && window.devicePixelRatio == 2 ){
-					$(document).trigger('showRetinaShot');
+					// Add the retina image + container
+					$shotContainer
+						.children('.single-grid')
+						.append(
+							'<div class="retina-shot">'+
+								'<img src="'+
+								retinaShotURL+'" width="'+
+								img.width/2+'" height="'+
+								img.height/2+
+								//'"style="left:'+bkgOffsetX+'; top:'+bkgOffsetY+
+								'">'+
+							'</div>'
+						);
+
+					$(document)
+					.bind('hideRetinaShot',function(){
+						$shotContainer.removeClass('retina-on').addClass('retina-off');
+						retinaShotVisible = false;
+						// $shotImage.attr('src',shotImageURL);
+					})
+					.bind('showRetinaShot',function(){
+						$shotContainer.removeClass('retina-off').addClass('retina-on');
+						retinaShotVisible = true;
+						// $shotImage.attr('src',attachmentURL);
+					});
+
+					if( !retinaShotVisible && window.devicePixelRatio == 2 ){
+						$(document).trigger('showRetinaShot');
+					}
+
+					// Break the loop
+					return false;
 				}
-
-				// Break the loop
-				return false;
 			}
+
 		});
 	}
 });
