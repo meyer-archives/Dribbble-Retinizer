@@ -1,22 +1,23 @@
 {
 	"name": "Dribbble Retinizer",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"manifest_version": 2,
-	"description": "Adds a few nifty retina features to Dribbble.",
+	"description": "Add some nifty retina-friendly functionality to Dribbble!",
 	"icons": {
 		"16":  "icon16.png",
 		"48":  "icon48.png",
 		"128": "icon128.png"
 	},
-	"update_url": "http://mikemeyer.s3.amazonaws.com/dribbble-retina-toggle/update-manifest-chrome.xml",
 	"permissions": [
 		"http://dribbble.com/",
 		"http://dribbble.s3.amazonaws.com/",
-		"tabs"
+		"tabs",
+		"webRequest"
 	],
 	"background": {
 		"scripts": ["background.js"]
 	},
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"content_scripts": [
 		{
 			"matches": ["http://dribbble.com/shots/*"],

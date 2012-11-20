@@ -73,6 +73,8 @@ $(function(){
 	// Check for attachments
 	var $attachmentList = $shotContainer.find('.attachments ul li a');
 
+	var retinaShotURL = $('.twotimes').attr('href');
+
 	if ( $attachmentList.length ){
 		// Add the retina toggle button
 		$('<a class="toggle-2x real-deal" href="#">@2x</a>').appendTo($shotContainer.append(
